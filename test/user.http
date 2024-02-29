@@ -18,7 +18,7 @@ Content-Type: application/json
 
 GET http://localhost:1337/api/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzA5MDk3NDU5LCJleHAiOjE3MTE2ODk0NTl9.kjaOyE9ue12CoYQlvt8upRAZsUkN2URDfh6jEbMqUzc
+Authorization: Bearer 
 
 ### send reset password code email
 
