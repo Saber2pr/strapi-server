@@ -3,7 +3,7 @@ services:
   strapi:
     container_name: strapi
     build: .
-    image: strapi/strapi:latest
+    image: saber2pr/strapi-server:v0.1.1
     restart: unless-stopped
     env_file: .env
     environment:
