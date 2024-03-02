@@ -1,28 +1,30 @@
 # https://docs.strapi.io/dev-docs/plugins/users-permissions#authentication
+# @base=http://localhost:1337
+@base=https://strapi.saber2pr.top
 
 ### register
 
-POST http://localhost:1337/api/auth/local/register
+POST {{base}}/api/auth/local/register
 Content-Type: application/json
 
 {  "username":"saber2pr",  "password":"123456", "email": "saber2pr@gmail.com" }
 
 ### login
 
-POST http://localhost:1337/api/auth/local
+POST {{base}}/api/auth/local
 Content-Type: application/json
 
 {  "identifier":"saber2pr",  "password":"123456" }
 
 ### get user info
 
-GET http://localhost:1337/api/users/me
+GET {{base}}/api/users/me
 Content-Type: application/json
 Authorization: Bearer 
 
 ### send reset password code email
 
-POST http://localhost:1337/api/auth/forgot-password
+POST {{base}}/api/auth/forgot-password
 Content-Type: application/json
 
 {
@@ -31,7 +33,7 @@ Content-Type: application/json
 
 ### reset password
 
-POST http://localhost:1337/api/auth/reset-password
+POST {{base}}/api/auth/reset-password
 Content-Type: application/json
 
 {

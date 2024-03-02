@@ -4,8 +4,8 @@
   "version": "0.1.6",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
+    "develop": "NODE_ENV=development strapi develop",
+    "start": "NODE_ENV=development strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
