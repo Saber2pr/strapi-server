@@ -783,6 +783,146 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface PluginStrapiPaypalPaypalProduct extends Schema.CollectionType {
+  collectionName: 'strapi-paypal_paypal-product';
+  info: {
+    tableName: 'PaypalProduct';
+    singularName: 'paypal-product';
+    pluralName: 'paypal-products';
+    displayName: 'Product';
+    description: 'Paypal Products';
+    kind: 'collectionType';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    slug: Attribute.UID<'plugin::strapi-paypal.paypal-product', 'title'> &
+      Attribute.Required &
+      Attribute.Unique;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    price: Attribute.Decimal & Attribute.Required;
+    currency: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    isSubscription: Attribute.Boolean & Attribute.DefaultTo<false>;
+    interval: Attribute.String;
+    trialPeriodDays: Attribute.Integer;
+    paypalOrderId: Attribute.String;
+    paypalSubcriptionId: Attribute.String;
+    paypalLinks: Attribute.JSON;
+    paypalPayment: Attribute.Relation<
+      'plugin::strapi-paypal.paypal-product',
+      'oneToMany',
+      'plugin::strapi-paypal.paypal-payment'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::strapi-paypal.paypal-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::strapi-paypal.paypal-product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface PluginStrapiPaypalPaypalPayment extends Schema.CollectionType {
+  collectionName: 'strapi-paypal_paypal-payment';
+  info: {
+    tableName: 'PaypalPayment';
+    singularName: 'paypal-payment';
+    pluralName: 'paypal-payments';
+    displayName: 'Payment';
+    description: 'Paypal Payment';
+    kind: 'collectionType';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    txnDate: Attribute.DateTime & Attribute.Required;
+    transactionId: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
+    isTxnSuccessful: Attribute.Boolean & Attribute.DefaultTo<false>;
+    txnMessage: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 5000;
+      }>;
+    txnErrorMessage: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
+    txnAmount: Attribute.Decimal & Attribute.Required;
+    customerName: Attribute.String & Attribute.Required;
+    customerEmail: Attribute.String & Attribute.Required;
+    paypalProduct: Attribute.Relation<
+      'plugin::strapi-paypal.paypal-payment',
+      'manyToOne',
+      'plugin::strapi-paypal.paypal-product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::strapi-paypal.paypal-payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::strapi-paypal.paypal-payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -801,6 +941,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'plugin::strapi-paypal.paypal-product': PluginStrapiPaypalPaypalProduct;
+      'plugin::strapi-paypal.paypal-payment': PluginStrapiPaypalPaypalPayment;
     }
   }
 }
