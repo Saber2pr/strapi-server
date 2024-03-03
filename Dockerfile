@@ -1,30 +1,30 @@
-FROM node:18
-# alternatively you can use FROM strapi/base:latest
+# Creating multi-stage build for production
+FROM node:18-alpine as build
 
-# Set up working directory
-WORKDIR /app
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git
+ENV NODE_ENV=production
 
-# Copy package.json to root directory
-COPY package.json .
-
-# Copy yarn.lock to root directory
-COPY yarn.lock .
-
-# Install dependencies, but not generate a yarn.lock file and fail if an update is needed
-RUN yarn install --frozen-lockfile
-
-# Copy strapi project files
-COPY src/ src/
-COPY public/ public/
-COPY database/ database/
-COPY config/ config/
-# ...
-
-# Build admin panel
+WORKDIR /opt/
+COPY package.json yarn.lock ./
+RUN yarn global add node-gyp
+RUN yarn config set registry 'https://registry.npmmirror.com/' -g
+RUN yarn config set network-timeout 600000 -g && yarn install --production
+ENV PATH /opt/node_modules/.bin:$PATH
+WORKDIR /opt/app
+COPY . .
 RUN yarn build
 
-# Run on port 1337
-EXPOSE 1337
+# Creating final production image
+FROM node:18-alpine
+RUN apk add --no-cache vips-dev
+ENV NODE_ENV=production
+WORKDIR /opt/
+COPY --from=build /opt/node_modules ./node_modules
+WORKDIR /opt/app
+COPY --from=build /opt/app ./
+ENV PATH /opt/node_modules/.bin:$PATH
 
-# Start strapi server
+# RUN chown -R node:node /opt/app
+# USER node
+EXPOSE 1337
 CMD ["yarn", "start"]
