@@ -1,10 +1,10 @@
 {
   "name": "todolist-server",
   "private": true,
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "A Strapi application",
   "scripts": {
-    "postinstall2": "patch-package",
+    "postinstall": "patch-package",
     "develop": "NODE_ENV=development strapi develop",
     "start": "NODE_ENV=production strapi start",
     "build": "strapi build",
