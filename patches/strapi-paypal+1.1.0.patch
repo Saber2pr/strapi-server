@@ -1,0 +1,85 @@
+diff --git a/node_modules/strapi-paypal/admin/src/components/Configuration/index.js b/node_modules/strapi-paypal/admin/src/components/Configuration/index.js
+index 0641923..f5daba1 100644
+--- a/node_modules/strapi-paypal/admin/src/components/Configuration/index.js
++++ b/node_modules/strapi-paypal/admin/src/components/Configuration/index.js
+@@ -29,8 +29,9 @@ import {
+ 
+ import currencies from './constant';
+ import { savePaypalConfiguration, getPaypalConfiguration } from '../../utils/apiCalls';
++import { env } from '@strapi/utils';
+ 
+-const apiToken = process.env.STRAPI_ADMIN_API_TOKEN;
++const apiToken = env('STRAPI_ADMIN_API_TOKEN');
+ 
+ const Configuration = () => {
+   const [paypalConfiguration, setPaypalConfiguration] = useState({
+diff --git a/node_modules/strapi-paypal/admin/src/components/ProductList/index.js b/node_modules/strapi-paypal/admin/src/components/ProductList/index.js
+index 1356c8d..dc0d674 100644
+--- a/node_modules/strapi-paypal/admin/src/components/ProductList/index.js
++++ b/node_modules/strapi-paypal/admin/src/components/ProductList/index.js
+@@ -15,8 +15,9 @@ import {
+   createPaypalProduct,
+   getPaypalConfiguration,
+ } from '../../utils/apiCalls';
++import { env } from '@strapi/utils';
+ 
+-const apiToken = process.env.STRAPI_ADMIN_API_TOKEN;
++const apiToken = env('STRAPI_ADMIN_API_TOKEN');
+ 
+ const limit = 5;
+ const ProductList = () => {
+diff --git a/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js b/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js
+index a47e0bf..cb9ee08 100644
+--- a/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js
++++ b/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js
+@@ -4,10 +4,11 @@
+  */
+ 
+ import axios from 'axios';
++import { env } from '@strapi/utils';
+ 
+ const createInstance = apiToken => {
+   const instance = axios.create({
+-    baseURL: process.env.STRAPI_ADMIN_BACKEND_URL,
++    baseURL: env('STRAPI_ADMIN_BACKEND_URL'),
+   });
+ 
+   instance.interceptors.request.use(
+diff --git a/node_modules/strapi-paypal/server/services/paypalAccessToken.js b/node_modules/strapi-paypal/server/services/paypalAccessToken.js
+index 1786f7c..0f80486 100644
+--- a/node_modules/strapi-paypal/server/services/paypalAccessToken.js
++++ b/node_modules/strapi-paypal/server/services/paypalAccessToken.js
+@@ -7,11 +7,12 @@ const { ApplicationError } = require('@strapi/utils').errors;
+ const axiosInstance = require('axios');
+ const qs = require('qs');
+ const moment = require('moment');
++const { env } = require('@strapi/utils');
+ 
+-const livePaypalClientId = process.env.STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_ID;
+-const livePaypalSecret = process.env.STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_SECRET;
+-const testPaypalClientId = process.env.STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_ID;
+-const testPaypalSecret = process.env.STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_SECRET;
++const livePaypalClientId = env('STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_ID');
++const livePaypalSecret = env('STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_SECRET');
++const testPaypalClientId = env('STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_ID');
++const testPaypalSecret = env('STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_SECRET');
+ 
+ module.exports = ({ strapi }) => ({
+   // get paypal access token
+diff --git a/node_modules/strapi-paypal/server/services/paypalService.js b/node_modules/strapi-paypal/server/services/paypalService.js
+index c8b5037..7dffdd2 100644
+--- a/node_modules/strapi-paypal/server/services/paypalService.js
++++ b/node_modules/strapi-paypal/server/services/paypalService.js
+@@ -6,9 +6,10 @@
+ 
+ const { ApplicationError } = require('@strapi/utils').errors;
+ const axiosInstance = require('axios');
++const { env } = require('@strapi/utils')
+ 
+-const paypalSandBoxUrl = process.env.STRAPI_ADMIN_PAYPAL_SANDBOX_API_URL;
+-const paypalLiveUrl = process.env.STRAPI_ADMIN_PAYPAL_LIVE_API_URL;
++const paypalSandBoxUrl = env('STRAPI_ADMIN_PAYPAL_SANDBOX_API_URL');
++const paypalLiveUrl = env('STRAPI_ADMIN_PAYPAL_LIVE_API_URL');
+ 
+ module.exports = ({ strapi }) => ({
+   async initialize() {
