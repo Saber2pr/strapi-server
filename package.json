@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "patch-package",
     "develop": "NODE_ENV=development strapi develop",
-    "start": "NODE_ENV=development strapi start",
+    "start": "NODE_ENV=production strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
