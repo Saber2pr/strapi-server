@@ -1,0 +1,46 @@
+diff --git a/node_modules/strapi-paypal/admin/src/components/CreateProduct/index.js b/node_modules/strapi-paypal/admin/src/components/CreateProduct/index.js
+index d455b4f..6de28c2 100644
+--- a/node_modules/strapi-paypal/admin/src/components/CreateProduct/index.js
++++ b/node_modules/strapi-paypal/admin/src/components/CreateProduct/index.js
+@@ -42,16 +42,14 @@ const CreateProduct = ({ isVisible, handleClose, handleClickSave }) => {
+     productType: "",
+   });
+ 
+-  const handleChange = (event) => {
+-    const { name, value } = event.target;
++  const handleTitleChange = (event) => {
++    const { value } = event.target;
++    setTitle(value);
++  };
+ 
+-    if (name === "title") {
+-      setTitle(value);
+-      setError({ ...error, title: "" });
+-    } else if (name === "description") {
+-      setDescription(value);
+-      setError({ ...error, description: "" });
+-    }
++  const handleDescriptionChange = (event) => {
++    const { value } = event.target;
++    setDescription(value);
+   };
+ 
+   const handleChangePaymentType = (value) => {
+@@ -235,7 +233,7 @@ const CreateProduct = ({ isVisible, handleClose, handleClickSave }) => {
+                 <TextInput
+                   label="Title"
+                   name="title"
+-                  onChange={handleChange}
++                  onChange={handleTitleChange}
+                   error={error.title ? error.title : ""}
+                   required
+                 />
+@@ -269,7 +267,7 @@ const CreateProduct = ({ isVisible, handleClose, handleClickSave }) => {
+                 <Textarea
+                   label="Description"
+                   name="description"
+-                  onChange={handleChange}
++                  onChange={handleDescriptionChange}
+                   error={error.description ? error.description : ""}
+                   required
+                 >
