@@ -4,7 +4,7 @@
   "version": "0.1.17",
   "description": "A Strapi application",
   "scripts": {
-    "postinstall": "patch-package",
+    "postinstall2": "patch-package",
     "develop": "NODE_ENV=development strapi develop",
     "start": "NODE_ENV=production strapi start",
     "build": "strapi build",
