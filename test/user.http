@@ -14,7 +14,7 @@ Content-Type: application/json
 POST {{base}}/api/auth/local
 Content-Type: application/json
 
-{  "identifier":"saber2pr",  "password":"123456" }
+{  "identifier":"saber2pr",  "password":"0729abcd." }
 
 ### get user info
 
@@ -41,3 +41,15 @@ Content-Type: application/json
   "password": "1234",
   "passwordConfirmation": "1234"
 }
+
+### get current user product paylink
+
+GET https://strapi.saber2pr.top/strapi-paypal/getProduct/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NTM1NzI0LCJleHAiOjE3MTIxMjc3MjR9.MLOSHFHm4D9vrDP_ovQr6i6D1K2xRcbBWylCj8QqFhg
+
+### get pay status
+
+GET https://strapi.saber2pr.top/strapi-paypal/getPaypalCheckout/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NTM1NzI0LCJleHAiOjE3MTIxMjc3MjR9.MLOSHFHm4D9vrDP_ovQr6i6D1K2xRcbBWylCj8QqFhg
+
+### 
