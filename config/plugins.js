@@ -24,5 +24,13 @@ module.exports = ({ env: _env }) => {
         },
       },
     },
+    "strapi-paypal": {
+      enabled: true,
+      config: {
+        paypalSandBoxUrl:
+          env("PAYPAL_SANDBOX_API_URL") || "https://api-m.sandbox.paypal.com",
+        paypalLiveUrl: env("PAYPAL_LIVE_API_URL") || "https://api-m.paypal.com",
+      },
+    },
   };
 };

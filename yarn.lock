@@ -8879,10 +8879,10 @@ statuses@2.0.1, statuses@^2.0.1:
   resolved "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
-strapi-paypal@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmmirror.com/strapi-paypal/-/strapi-paypal-1.1.0.tgz#a8d474c25a68df05ec127cf85527f5033cd955ca"
-  integrity sha512-w1u5bH9Fdu4TOdRwKlSacXYrb8bUrOMeRRDLKrSnSqAiMmyOQ8gCzXMQEzNzoGk7Hih1wAwET7xP4aeZ0Xr16Q==
+strapi-paypal@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmmirror.com/strapi-paypal/-/strapi-paypal-1.0.4.tgz#0e54094df58824869d1bdf2321029efed6cb2bda"
+  integrity sha512-zXWed6c5MQL1D1PfHVJxkfplcHf/0bAazdHY6mnSECrjQxgftzayu7vCnY1Le0TW4Eak5AsCCpPIFAMsclw4vQ==
   dependencies:
     html-react-parser "^3.0.4"
     moment "^2.29.4"
