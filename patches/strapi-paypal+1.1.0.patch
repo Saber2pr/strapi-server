@@ -1,0 +1,73 @@
+diff --git a/node_modules/strapi-paypal/admin/src/components/Configuration/index.js b/node_modules/strapi-paypal/admin/src/components/Configuration/index.js
+index 0641923..9cb718f 100644
+--- a/node_modules/strapi-paypal/admin/src/components/Configuration/index.js
++++ b/node_modules/strapi-paypal/admin/src/components/Configuration/index.js
+@@ -30,7 +30,7 @@ import {
+ import currencies from './constant';
+ import { savePaypalConfiguration, getPaypalConfiguration } from '../../utils/apiCalls';
+ 
+-const apiToken = process.env.STRAPI_ADMIN_API_TOKEN;
++const apiToken = process.env.REACT_APP_STRAPI_ADMIN_API_TOKEN;
+ 
+ const Configuration = () => {
+   const [paypalConfiguration, setPaypalConfiguration] = useState({
+diff --git a/node_modules/strapi-paypal/admin/src/components/ProductList/index.js b/node_modules/strapi-paypal/admin/src/components/ProductList/index.js
+index 1356c8d..93b40be 100644
+--- a/node_modules/strapi-paypal/admin/src/components/ProductList/index.js
++++ b/node_modules/strapi-paypal/admin/src/components/ProductList/index.js
+@@ -16,7 +16,7 @@ import {
+   getPaypalConfiguration,
+ } from '../../utils/apiCalls';
+ 
+-const apiToken = process.env.STRAPI_ADMIN_API_TOKEN;
++const apiToken = process.env.REACT_APP_STRAPI_ADMIN_API_TOKEN;
+ 
+ const limit = 5;
+ const ProductList = () => {
+diff --git a/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js b/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js
+index a47e0bf..8574aa2 100644
+--- a/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js
++++ b/node_modules/strapi-paypal/admin/src/utils/axiosInstance.js
+@@ -7,7 +7,7 @@ import axios from 'axios';
+ 
+ const createInstance = apiToken => {
+   const instance = axios.create({
+-    baseURL: process.env.STRAPI_ADMIN_BACKEND_URL,
++    baseURL: process.env.REACT_APP_STRAPI_ADMIN_BACKEND_URL,
+   });
+ 
+   instance.interceptors.request.use(
+diff --git a/node_modules/strapi-paypal/server/services/paypalAccessToken.js b/node_modules/strapi-paypal/server/services/paypalAccessToken.js
+index 1786f7c..d32a66b 100644
+--- a/node_modules/strapi-paypal/server/services/paypalAccessToken.js
++++ b/node_modules/strapi-paypal/server/services/paypalAccessToken.js
+@@ -8,10 +8,10 @@ const axiosInstance = require('axios');
+ const qs = require('qs');
+ const moment = require('moment');
+ 
+-const livePaypalClientId = process.env.STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_ID;
+-const livePaypalSecret = process.env.STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_SECRET;
+-const testPaypalClientId = process.env.STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_ID;
+-const testPaypalSecret = process.env.STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_SECRET;
++const livePaypalClientId = process.env.REACT_APP_STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_ID;
++const livePaypalSecret = process.env.REACT_APP_STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_SECRET;
++const testPaypalClientId = process.env.REACT_APP_STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_ID;
++const testPaypalSecret = process.env.REACT_APP_STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_SECRET;
+ 
+ module.exports = ({ strapi }) => ({
+   // get paypal access token
+diff --git a/node_modules/strapi-paypal/server/services/paypalService.js b/node_modules/strapi-paypal/server/services/paypalService.js
+index c8b5037..06f50c9 100644
+--- a/node_modules/strapi-paypal/server/services/paypalService.js
++++ b/node_modules/strapi-paypal/server/services/paypalService.js
+@@ -7,8 +7,8 @@
+ const { ApplicationError } = require('@strapi/utils').errors;
+ const axiosInstance = require('axios');
+ 
+-const paypalSandBoxUrl = process.env.STRAPI_ADMIN_PAYPAL_SANDBOX_API_URL;
+-const paypalLiveUrl = process.env.STRAPI_ADMIN_PAYPAL_LIVE_API_URL;
++const paypalSandBoxUrl = process.env.REACT_APP_STRAPI_ADMIN_PAYPAL_SANDBOX_API_URL;
++const paypalLiveUrl = process.env.REACT_APP_STRAPI_ADMIN_PAYPAL_LIVE_API_URL;
+ 
+ module.exports = ({ strapi }) => ({
+   async initialize() {
