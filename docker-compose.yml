@@ -3,7 +3,7 @@ services:
   strapi:
     container_name: strapi
     build: .
-    image: saber2pr/strapi-server:v0.1.9
+    image: saber2pr/strapi-server:v0.1.12
     restart: unless-stopped
     env_file: .env
     environment:
@@ -17,6 +17,13 @@ services:
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
+      STRAPI_ADMIN_API_TOKEN: ${STRAPI_ADMIN_API_TOKEN}
+      STRAPI_ADMIN_PAYPAL_SANDBOX_API_URL: ${STRAPI_ADMIN_PAYPAL_SANDBOX_API_URL}
+      STRAPI_ADMIN_PAYPAL_LIVE_API_URL: ${STRAPI_ADMIN_PAYPAL_LIVE_API_URL}
+      STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_ID: ${STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_ID}
+      STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_SECRET: ${STRAPI_ADMIN_LIVE_PAYPAL_CLIENT_SECRET}
+      STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_ID: ${STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_ID}
+      STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_SECRET: ${STRAPI_ADMIN_SANDBOX_PAYPAL_CLIENT_SECRET}
     volumes:
       - ./config:/app/config
       - ./src:/app/src
