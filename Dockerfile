@@ -6,6 +6,7 @@ ENV NODE_ENV=production
 
 WORKDIR /opt/
 COPY package.json yarn.lock ./
+COPY patches ./patches
 RUN yarn global add node-gyp
 RUN yarn config set registry 'https://registry.npmmirror.com/' -g
 RUN yarn config set network-timeout 600000 -g && yarn install --production

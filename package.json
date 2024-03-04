@@ -1,7 +1,7 @@
 {
   "name": "todolist-server",
   "private": true,
-  "version": "0.1.19",
+  "version": "0.1.21",
   "description": "A Strapi application",
   "scripts": {
     "postinstall": "patch-package",
