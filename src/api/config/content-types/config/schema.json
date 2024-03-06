@@ -14,6 +14,9 @@
   "attributes": {
     "todolistProductId": {
       "type": "integer"
+    },
+    "todolistProductEnabled": {
+      "type": "boolean"
     }
   }
 }

@@ -375,6 +375,7 @@ export interface ApiConfigConfig extends Schema.SingleType {
   };
   attributes: {
     todolistProductId: Attribute.Integer;
+    todolistProductEnabled: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
