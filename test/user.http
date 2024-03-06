@@ -1,6 +1,6 @@
 # https://docs.strapi.io/dev-docs/plugins/users-permissions#authentication
-# @base=http://localhost:1337
-@base=https://strapi.saber2pr.top
+@base=http://localhost:1337
+# @base=https://strapi.saber2pr.top
 
 ### register
 
@@ -52,4 +52,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 GET https://strapi.saber2pr.top/strapi-paypal/getPaypalCheckout/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5NTM1NzI0LCJleHAiOjE3MTIxMjc3MjR9.MLOSHFHm4D9vrDP_ovQr6i6D1K2xRcbBWylCj8QqFhg
 
-### 
+### pid
+
+GET {{base}}/api/config
