@@ -1,0 +1,38 @@
+{
+  "name": "todolist-server",
+  "private": true,
+  "version": "0.1.24",
+  "description": "A Strapi application",
+  "scripts": {
+    "dev": "NODE_ENV=development strapi develop",
+    "start": "NODE_ENV=production strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@saber2pr/strapi-paypal": "^1.0.10",
+    "@strapi/plugin-cloud": "4.20.2",
+    "@strapi/plugin-i18n": "4.20.2",
+    "@strapi/plugin-users-permissions": "4.20.2",
+    "@strapi/provider-email-nodemailer": "^4.20.3",
+    "@strapi/strapi": "4.20.2",
+    "better-sqlite3": "8.6.0",
+    "mysql": "^2.18.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "styled-components": "5.3.3"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "41b294f1-d39b-486e-b7af-6ae5b6df5baf"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
