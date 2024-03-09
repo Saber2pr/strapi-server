@@ -32,5 +32,12 @@ module.exports = ({ env: _env }) => {
         paypalLiveUrl: env("PAYPAL_LIVE_API_URL") || "https://api-m.paypal.com",
       },
     },
+    "users-permissions": {
+      config: {
+        jwt: {
+          expiresIn: "7d",
+        },
+      },
+    },
   };
 };
