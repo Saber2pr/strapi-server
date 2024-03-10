@@ -1415,10 +1415,10 @@
     argparse "~1.0.9"
     string-argv "~0.3.1"
 
-"@saber2pr/strapi-paypal@^1.0.30":
-  version "1.0.30"
-  resolved "https://registry.npmjs.org/@saber2pr/strapi-paypal/-/strapi-paypal-1.0.30.tgz#b0c3b95e2995d8c6fa62d9ef8c4b704f06197da6"
-  integrity sha512-JsX9vSNPJF1mQjLKNEttZLKOS0Rb3ojjRdq+eNww8/opuu179geQHRkR41HOLucTwBMSHGio04GTzbs+2s5Zcw==
+"@saber2pr/strapi-paypal@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.npmjs.org/@saber2pr/strapi-paypal/-/strapi-paypal-1.0.31.tgz#34357c1dc3310e7ca06b11225b8ebce84cd4049d"
+  integrity sha512-n1ke9e236a7akSIxBZxUHkgW+s8HgbpZU0BqXRlXQHl65ZN65Z3NBnsBm8MfOwkp0JDVxSLCxJB6iJ56JCMCSg==
   dependencies:
     html-react-parser "^3.0.4"
     moment "^2.29.4"
