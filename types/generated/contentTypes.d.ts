@@ -376,6 +376,7 @@ export interface ApiConfigConfig extends Schema.SingleType {
   attributes: {
     todolistProductId: Attribute.Integer;
     todolistProductEnabled: Attribute.Boolean;
+    noticeKey: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -723,6 +724,10 @@ export interface PluginStrapiPaypalPaypalPayment extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
+      }>;
+    status: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
       }>;
     isTxnSuccessful: Attribute.Boolean & Attribute.DefaultTo<false>;
     txnMessage: Attribute.String &

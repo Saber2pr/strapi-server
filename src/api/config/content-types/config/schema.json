@@ -17,6 +17,9 @@
     },
     "todolistProductEnabled": {
       "type": "boolean"
+    },
+    "noticeKey": {
+      "type": "string"
     }
   }
 }
