@@ -395,6 +395,40 @@ export interface ApiConfigConfig extends Schema.SingleType {
   };
 }
 
+export interface ApiTagPackTagPack extends Schema.CollectionType {
+  collectionName: 'tag_packs';
+  info: {
+    singularName: 'tag-pack';
+    pluralName: 'tag-packs';
+    displayName: 'TagPack';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ownerId: Attribute.Integer;
+    tagList: Attribute.JSON;
+    downloads: Attribute.Integer & Attribute.DefaultTo<0>;
+    title: Attribute.String;
+    desc: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tag-pack.tag-pack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tag-pack.tag-pack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -972,6 +1006,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::config.config': ApiConfigConfig;
+      'api::tag-pack.tag-pack': ApiTagPackTagPack;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
