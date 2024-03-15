@@ -401,6 +401,7 @@ export interface ApiTagPackTagPack extends Schema.CollectionType {
     singularName: 'tag-pack';
     pluralName: 'tag-packs';
     displayName: 'TagPack';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -411,6 +412,7 @@ export interface ApiTagPackTagPack extends Schema.CollectionType {
     downloads: Attribute.Integer & Attribute.DefaultTo<0>;
     title: Attribute.String;
     desc: Attribute.Text;
+    ownerNick: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

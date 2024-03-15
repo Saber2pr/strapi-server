@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tag-pack",
     "pluralName": "tag-packs",
-    "displayName": "TagPack"
+    "displayName": "TagPack",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,9 @@
     },
     "desc": {
       "type": "text"
+    },
+    "ownerNick": {
+      "type": "string"
     }
   }
 }
