@@ -11,6 +11,27 @@ module.exports = createCoreController(
   ({ strapi }) => ({
     async create(ctx) {
       const user = ctx.state.user;
+
+      // @ts-ignore
+      const body = ctx.request.body;
+      if (body && body.data) {
+        const putData = body.data;
+        if ("private" in putData && user) {
+          if (putData.private === true) {
+            if (user.level === 0) {
+              ctx.send(
+                {
+                  status: 403,
+                  message: "Need upgrade pro",
+                },
+                403
+              );
+              return;
+            }
+          }
+        }
+      }
+
       // @ts-ignore
       const body = ctx.request.body;
       if (body && body.data && user) {
