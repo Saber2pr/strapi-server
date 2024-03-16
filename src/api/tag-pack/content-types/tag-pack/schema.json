@@ -30,6 +30,10 @@
     },
     "ownerNick": {
       "type": "string"
+    },
+    "private": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
