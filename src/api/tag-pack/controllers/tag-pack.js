@@ -32,8 +32,6 @@ module.exports = createCoreController(
         }
       }
 
-      // @ts-ignore
-      const body = ctx.request.body;
       if (body && body.data && user) {
         body.data.ownerId = user.id;
       }
