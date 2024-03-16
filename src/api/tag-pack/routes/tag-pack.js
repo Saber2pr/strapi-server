@@ -6,4 +6,10 @@
 
 const { createCoreRouter } = require("@strapi/strapi").factories;
 
-module.exports = createCoreRouter("api::tag-pack.tag-pack");
+module.exports = createCoreRouter("api::tag-pack.tag-pack", {
+  config: {
+    update: {
+      policies: ["api::tag-pack.is-owner"],
+    },
+  },
+});
