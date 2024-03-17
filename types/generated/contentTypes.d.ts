@@ -413,7 +413,7 @@ export interface ApiTagPackTagPack extends Schema.CollectionType {
     title: Attribute.String;
     desc: Attribute.Text;
     ownerNick: Attribute.String;
-    private: Attribute.Boolean & Attribute.DefaultTo<false>;
+    private: Attribute.Integer & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
