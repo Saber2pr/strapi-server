@@ -11,5 +11,8 @@ module.exports = createCoreRouter("api::tag-pack.tag-pack", {
     update: {
       policies: ["api::tag-pack.is-owner"],
     },
+    delete: {
+      policies: ["api::tag-pack.is-owner"],
+    },
   },
 });

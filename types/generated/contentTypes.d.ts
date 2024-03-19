@@ -432,6 +432,37 @@ export interface ApiTagPackTagPack extends Schema.CollectionType {
   };
 }
 
+export interface ApiTodolistTodolist extends Schema.CollectionType {
+  collectionName: 'todolists';
+  info: {
+    singularName: 'todolist';
+    pluralName: 'todolists';
+    displayName: 'todolist';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ownerId: Attribute.Integer;
+    data: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::todolist.todolist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::todolist.todolist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -1010,6 +1041,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::config.config': ApiConfigConfig;
       'api::tag-pack.tag-pack': ApiTagPackTagPack;
+      'api::todolist.todolist': ApiTodolistTodolist;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

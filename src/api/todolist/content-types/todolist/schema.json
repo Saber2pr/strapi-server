@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "todolists",
+  "info": {
+    "singularName": "todolist",
+    "pluralName": "todolists",
+    "displayName": "todolist"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ownerId": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "json"
+    }
+  }
+}

@@ -61,6 +61,10 @@ module.exports = createCoreController(
         }
       }
 
+      if (body && body.data && user) {
+        body.data.ownerId = user.id;
+      }
+
       const result = await super.update(ctx);
 
       return result;
