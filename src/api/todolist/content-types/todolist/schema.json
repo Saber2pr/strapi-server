@@ -4,7 +4,8 @@
   "info": {
     "singularName": "todolist",
     "pluralName": "todolists",
-    "displayName": "todolist"
+    "displayName": "todolist",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

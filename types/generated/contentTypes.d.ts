@@ -438,6 +438,7 @@ export interface ApiTodolistTodolist extends Schema.CollectionType {
     singularName: 'todolist';
     pluralName: 'todolists';
     displayName: 'todolist';
+    description: '';
   };
   options: {
     draftAndPublish: true;

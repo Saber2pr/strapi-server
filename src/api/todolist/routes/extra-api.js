@@ -2,12 +2,12 @@ module.exports = {
   routes: [
     {
       method: "GET",
-      path: "/todolist/findTodolist/:page/:pageSize",
-      handler: "todolist.addDownload",
+      path: "/todolists/findTodolist/:page/:pageSize",
+      handler: "todolist.findTodolist",
     },
     {
       method: "GET",
-      path: "/todolist/findOneTodolist/:id",
+      path: "/todolists/findOneTodolist/:id",
       handler: "todolist.findOneTodolist",
     },
   ],
