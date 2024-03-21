@@ -12,6 +12,17 @@ module.exports = createCoreController(
     async create(ctx) {
       const user = ctx.state.user;
 
+      if (!user) {
+        ctx.send(
+          {
+            status: 401,
+            message: "need login",
+          },
+          401
+        );
+        return;
+      }
+
       // @ts-ignore
       const body = ctx.request.body;
 
@@ -24,6 +35,16 @@ module.exports = createCoreController(
     },
     async update(ctx) {
       const user = ctx.state.user;
+      if (!user) {
+        ctx.send(
+          {
+            status: 401,
+            message: "need login",
+          },
+          401
+        );
+        return;
+      }
 
       // @ts-ignore
       const body = ctx.request.body;
@@ -37,6 +58,16 @@ module.exports = createCoreController(
     },
     async findTodolist(ctx) {
       const user = ctx.state.user;
+      if (!user) {
+        ctx.send(
+          {
+            status: 401,
+            message: "need login",
+          },
+          401
+        );
+        return;
+      }
 
       // @ts-ignore
       const params = ctx.request.params;
@@ -59,6 +90,16 @@ module.exports = createCoreController(
     },
     async findOneTodolist(ctx) {
       const user = ctx.state.user;
+      if (!user) {
+        ctx.send(
+          {
+            status: 401,
+            message: "need login",
+          },
+          401
+        );
+        return;
+      }
       // @ts-ignore
       const params = ctx.request.params;
 
@@ -84,7 +125,9 @@ module.exports = createCoreController(
           return;
         }
       } else {
-        return null;
+        return {
+          id: -1,
+        };
       }
     },
   })
