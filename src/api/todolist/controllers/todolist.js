@@ -23,6 +23,31 @@ module.exports = createCoreController(
         return;
       }
 
+      const level = user.level;
+      if (level >= 1) {
+        // pro
+      } else {
+        const ownerCount = await strapi.entityService.count(
+          "api::todolist.todolist",
+          {
+            filters: {
+              ownerId: user.id,
+            },
+          }
+        );
+        if (ownerCount >= 5) {
+          ctx.send(
+            {
+              status: 403,
+              message:
+                "Cloud storage free space limit reached, please upgrade pro.",
+            },
+            403
+          );
+          return;
+        }
+      }
+
       // @ts-ignore
       const body = ctx.request.body;
 
