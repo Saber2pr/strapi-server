@@ -17,6 +17,9 @@
     },
     "data": {
       "type": "json"
+    },
+    "shareId": {
+      "type": "string"
     }
   }
 }

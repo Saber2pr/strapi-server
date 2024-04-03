@@ -446,6 +446,7 @@ export interface ApiTodolistTodolist extends Schema.CollectionType {
   attributes: {
     ownerId: Attribute.Integer;
     data: Attribute.JSON;
+    shareId: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

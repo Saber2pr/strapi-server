@@ -10,5 +10,10 @@ module.exports = {
       path: "/todolists/findOneTodolist/:id",
       handler: "todolist.findOneTodolist",
     },
+    {
+      method: "POST",
+      path: "/todolists/getShareId/:id",
+      handler: "todolist.getShareId",
+    },
   ],
 };
