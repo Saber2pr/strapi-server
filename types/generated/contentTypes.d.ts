@@ -362,109 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiConfigConfig extends Schema.SingleType {
-  collectionName: 'configs';
-  info: {
-    singularName: 'config';
-    pluralName: 'configs';
-    displayName: 'config';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    todolistProductId: Attribute.Integer;
-    todolistProductEnabled: Attribute.Boolean;
-    noticeKey: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::config.config',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::config.config',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTagPackTagPack extends Schema.CollectionType {
-  collectionName: 'tag_packs';
-  info: {
-    singularName: 'tag-pack';
-    pluralName: 'tag-packs';
-    displayName: 'TagPack';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ownerId: Attribute.Integer;
-    tagList: Attribute.JSON;
-    downloads: Attribute.Integer & Attribute.DefaultTo<0>;
-    title: Attribute.String;
-    desc: Attribute.Text;
-    ownerNick: Attribute.String;
-    private: Attribute.Integer & Attribute.DefaultTo<0>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tag-pack.tag-pack',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tag-pack.tag-pack',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTodolistTodolist extends Schema.CollectionType {
-  collectionName: 'todolists';
-  info: {
-    singularName: 'todolist';
-    pluralName: 'todolists';
-    displayName: 'todolist';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ownerId: Attribute.Integer;
-    data: Attribute.JSON;
-    shareId: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::todolist.todolist',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::todolist.todolist',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -1031,6 +928,131 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiConfigConfig extends Schema.SingleType {
+  collectionName: 'configs';
+  info: {
+    singularName: 'config';
+    pluralName: 'configs';
+    displayName: 'config';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    todolistProductId: Attribute.Integer;
+    todolistProductEnabled: Attribute.Boolean;
+    noticeKey: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFreqFreq extends Schema.SingleType {
+  collectionName: 'freqs';
+  info: {
+    singularName: 'freq';
+    pluralName: 'freqs';
+    displayName: 'freq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pairs: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::freq.freq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::freq.freq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagPackTagPack extends Schema.CollectionType {
+  collectionName: 'tag_packs';
+  info: {
+    singularName: 'tag-pack';
+    pluralName: 'tag-packs';
+    displayName: 'TagPack';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ownerId: Attribute.Integer;
+    tagList: Attribute.JSON;
+    downloads: Attribute.Integer & Attribute.DefaultTo<0>;
+    title: Attribute.String;
+    desc: Attribute.Text;
+    ownerNick: Attribute.String;
+    private: Attribute.Integer & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tag-pack.tag-pack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tag-pack.tag-pack',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTodolistTodolist extends Schema.CollectionType {
+  collectionName: 'todolists';
+  info: {
+    singularName: 'todolist';
+    pluralName: 'todolists';
+    displayName: 'todolist';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ownerId: Attribute.Integer;
+    data: Attribute.JSON;
+    shareId: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::todolist.todolist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::todolist.todolist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1041,9 +1063,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::config.config': ApiConfigConfig;
-      'api::tag-pack.tag-pack': ApiTagPackTagPack;
-      'api::todolist.todolist': ApiTodolistTodolist;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -1054,6 +1073,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::config.config': ApiConfigConfig;
+      'api::freq.freq': ApiFreqFreq;
+      'api::tag-pack.tag-pack': ApiTagPackTagPack;
+      'api::todolist.todolist': ApiTodolistTodolist;
     }
   }
 }

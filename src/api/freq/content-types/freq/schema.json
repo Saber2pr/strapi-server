@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "freqs",
+  "info": {
+    "singularName": "freq",
+    "pluralName": "freqs",
+    "displayName": "freq"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pairs": {
+      "type": "json"
+    }
+  }
+}
