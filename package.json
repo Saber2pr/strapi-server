@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@saber2pr/strapi-paypal": "^1.0.32",
+    "@saber2pr/strapi-paypal": "^1.0.33",
     "@strapi/plugin-cloud": "4.20.2",
     "@strapi/plugin-i18n": "4.20.2",
     "@strapi/plugin-users-permissions": "4.20.2",
